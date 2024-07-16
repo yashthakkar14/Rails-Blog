@@ -3,17 +3,6 @@
 <!-- The blog_posts here is the instance variables which is sent from the controller. -->
 <% @blog_posts.each do |blog_post| %>
     <div>
-        <!-- The link_to tag here, is used to create the anchor tag, we will be displaying the title here and pass the blog_post to the href attribute -->
-
-        <!-- The below three ways are the ways to attach link to the link_to -->
-
-        <!-- The first way is to directly attach the id in the blog_posts after which it will match the route and call the suitable controller  -->
-        <%# <h2> <%= link_to blog_post.title, "/blog_posts/#{blog_post.id}" %> </h2> %>
-
-        <!-- The second way is to give the blog_post_path and then pass the variable parameter to the same, the blog_post_path is taken from the routes, with the help of the as keyword, we get blog_post and rails automatically appends path and url to form new variables. Here the end url will be '/blog_posts/#{blog_post.id}' -->
-        <%# <h2> <%= link_to blog_post.title, blog_post_path(blog_post.id) %> </h2> %>
-
-        <!-- The third way is to directly pass the blog_post to the anchor tag, and  this then translates to blog_post_path(blog_post) which in turn then turns to blog_post_path(blog_post.id) -->
         <h2> <%= link_to blog_post.title, blog_post %> </h2>
         
         <p> <%= blog_post.body %> </p>
