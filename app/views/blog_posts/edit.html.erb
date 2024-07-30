@@ -1,3 +1,6 @@
 <h1>Edit Blog Post</h1>
 
 <%= render partial: "form", locals: {blog_post: @blog_post} %>
+
+<!-- By default, the method would be patch method, as it would be able to retrieve the blog post like in any rails form -->
+<%= button_to 'Delete', @blog_post, method: :delete, data: {turbo_confirm: "Are you sure, you want to delete the blog post \"#{@blog_post.title}\""} %>
