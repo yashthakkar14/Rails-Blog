@@ -1,4 +1,5 @@
 class BlogPostsController < ApplicationController
+    before_action :authenticate_user!, except: [:index, :show]
     before_action :set_blog_post, except: [:index, :new, :create] # only: [:show, :update, :destroy]
 
     def index
@@ -53,4 +54,9 @@ class BlogPostsController < ApplicationController
     rescue ActiveRecord::RecordNotFound
         redirect_to root_path
     end
+
+    ## This method is defined by the devise gem itself, and we might not need to define the same, but this is what it might be doing behind the scenes.
+    # def authenticate_user!
+    #   redirect_to new_user_session_path, alert: "You must sign up or log in to continue." unless user_signed_in?
+    # end
 end
