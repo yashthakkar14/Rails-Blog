@@ -7,7 +7,6 @@ class BlogPostsController < ApplicationController
     end
 
     def show
-        # Missed clearing this out in the refactoring code.
     end
 
     def new
@@ -24,11 +23,9 @@ class BlogPostsController < ApplicationController
     end
 
     def edit
-        # Refactoring
     end
 
     def update
-        # Refactor
         if @blog_post.update(blog_post_params)
             redirect_to @blog_post
         else
@@ -47,14 +44,8 @@ class BlogPostsController < ApplicationController
     end
 
     def set_blog_post
-        # If the user is signed in, we can look into any blog posts or we just need to look into the published blog posts.
         @blog_post = user_signed_in? ? BlogPost.find(params[:id]) : BlogPost.published.find(params[:id])
     rescue ActiveRecord::RecordNotFound
         redirect_to root_path
     end
-
-    ## This method is defined by the devise gem itself, and we might not need to define the same, but this is what it might be doing behind the scenes.
-    # def authenticate_user!
-    #   redirect_to new_user_session_path, alert: "You must sign up or log in to continue." unless user_signed_in?
-    # end
 end
