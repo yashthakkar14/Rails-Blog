@@ -80,3 +80,5 @@ gem "foreman", "~> 0.88.1"
 
 
 gem "actiontext", "~> 7.0"
+gem "aws-sdk-s3", require: false
+
