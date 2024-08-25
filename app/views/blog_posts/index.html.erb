@@ -15,6 +15,9 @@
     </div>
 <% end %>
 
-<div class="my-16">
-    <%== pagy_nav(@pagy)%>
-</div>
+<% if @pagy.count > @pagy.limit %>
+    <div class="my-16">
+        <%= console %>
+        <%== pagy_nav(@pagy)%>
+    </div>
+<% end %>
